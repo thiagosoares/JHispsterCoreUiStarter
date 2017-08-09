@@ -1,38 +1,12 @@
-<!-- <jhi-page-ribbon></jhi-page-ribbon>
+<jhi-page-ribbon></jhi-page-ribbon>
+
 <div>
     <router-outlet name="navbar"></router-outlet>
 </div>
-<div class="container-fluid">
-    <div class="card jh-card">
-        <router-outlet></router-outlet>
-        <router-outlet name="popup"></router-outlet>
-    </div>
-    <jhi-footer></jhi-footer>
-</div> -->
-
-<!--   sdsdsdsdsd  -->
-
-<jhi-page-ribbon></jhi-page-ribbon>
-<header class="app-header navbar">
-    <button class="navbar-toggler d-lg-none" type="button" jhiAppSidebarToggler>&#9776; dddd</button>
-    <a class="navbar-brand" href="#"></a>
-    <ul class="nav navbar-nav mr-auto d-md-down-none">
-        <li class="nav-item">
-            <a class="nav-link navbar-toggler" href="#" jhiAppSidebarToggler>&#9776;</a>
-        </li>
-    </ul>
-</header>
 
 <div class="app-body">
-    <div class="sidebar">
-        <nav class="sidebar-nav">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    
+    <jhi-side-menu><jhi-side-menu>
 
     <!-- Main content -->
     <main class="main">
@@ -49,9 +23,4 @@
     </main>
 </div>
 
-<footer class="app-footer">
-    <a href="http://coreui.io">CoreUI</a> &copy; 2017 creativeLabs.
-    <span class="float-right">Powered by <a href="http://coreui.io">CoreUI</a>
-    </span>
-</footer>
-
+<jhi-footer></jhi-footer>

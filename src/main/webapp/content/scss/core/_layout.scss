@@ -39,6 +39,7 @@ app-root {
     flex: 0 0 $sidebar-width;
     // put the nav on the left
     order: -1;
+    height: calc(100vh - 55px);
   }
 
   .aside-menu {
