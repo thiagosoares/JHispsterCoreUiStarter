@@ -10,6 +10,9 @@ import { StateStorageService } from '../../shared';
 })
 export class JhiMainComponent implements OnInit {
 
+    public disabled = false;
+    public status: {isopen: boolean} = {isopen: false};
+
     constructor(
         private titleService: Title,
         private router: Router,
@@ -22,6 +25,16 @@ export class JhiMainComponent implements OnInit {
             title = this.getPageTitle(routeSnapshot.firstChild) || title;
         }
         return title;
+    }
+
+    public toggled(open: boolean): void {
+        console.log('Dropdown is now: ', open);
+    }
+
+    public toggleDropdown($event: MouseEvent): void {
+        $event.preventDefault();
+        $event.stopPropagation();
+        this.status.isopen = !this.status.isopen;
     }
 
     ngOnInit() {

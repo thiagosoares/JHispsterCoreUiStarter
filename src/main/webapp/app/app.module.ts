@@ -13,6 +13,10 @@ import { JhipsterEntityModule } from './entities/entity.module';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
+import { NAV_DROPDOWN_DIRECTIVES } from './shared/core-ui/directives/nav-dropdown.directive';
+import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/core-ui/directives/sidebar.directive';
+import { AsideToggleDirective } from './shared/core-ui/directives/aside.directive';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
 import {
@@ -20,6 +24,7 @@ import {
     LayoutRoutingModule,
     NavbarComponent,
     FooterComponent,
+    BreadcrumbsComponent,
     ProfileService,
     PageRibbonComponent,
     ErrorComponent
@@ -42,7 +47,11 @@ import {
         NavbarComponent,
         ErrorComponent,
         PageRibbonComponent,
-        FooterComponent
+        FooterComponent,
+        BreadcrumbsComponent,
+        NAV_DROPDOWN_DIRECTIVES,
+        SIDEBAR_TOGGLE_DIRECTIVES,
+        AsideToggleDirective
     ],
     providers: [
         ProfileService,

@@ -13,7 +13,8 @@ import {
     ],
     declarations: [
         JhiAlertComponent,
-        JhiAlertErrorComponent
+        JhiAlertErrorComponent,
+        
     ],
     providers: [
         Title,
