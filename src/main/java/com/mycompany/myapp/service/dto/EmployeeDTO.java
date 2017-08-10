@@ -30,8 +30,6 @@ public class EmployeeDTO implements Serializable {
 
     private Long departmentId;
 
-    private Long managerId;
-
     public Long getId() {
         return id;
     }
@@ -102,14 +100,6 @@ public class EmployeeDTO implements Serializable {
 
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
-    }
-
-    public Long getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(Long employeeId) {
-        this.managerId = employeeId;
     }
 
     @Override

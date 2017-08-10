@@ -31,10 +31,6 @@ public class Department implements Serializable {
     @Column(name = "department_name", nullable = false)
     private String departmentName;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Location location;
-
     /**
      * A relationship
      */
@@ -63,19 +59,6 @@ public class Department implements Serializable {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public Department location(Location location) {
-        this.location = location;
-        return this;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
 
     public Set<Employee> getEmployees() {

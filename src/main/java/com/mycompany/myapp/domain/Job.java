@@ -5,8 +5,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -35,13 +33,6 @@ public class Job implements Serializable {
 
     @ManyToOne
     private Employee employee;
-
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "job_task",
-               joinColumns = @JoinColumn(name="jobs_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="tasks_id", referencedColumnName="id"))
-    private Set<Task> tasks = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -101,31 +92,6 @@ public class Job implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public Set<Task> getTasks() {
-        return tasks;
-    }
-
-    public Job tasks(Set<Task> tasks) {
-        this.tasks = tasks;
-        return this;
-    }
-
-    public Job addTask(Task task) {
-        this.tasks.add(task);
-        task.getJobs().add(this);
-        return this;
-    }
-
-    public Job removeTask(Task task) {
-        this.tasks.remove(task);
-        task.getJobs().remove(this);
-        return this;
-    }
-
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
     }
 
     @Override

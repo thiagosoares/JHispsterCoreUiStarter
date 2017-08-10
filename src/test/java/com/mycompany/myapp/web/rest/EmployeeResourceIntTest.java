@@ -4,6 +4,7 @@ import com.mycompany.myapp.JhipsterApp;
 
 import com.mycompany.myapp.domain.Employee;
 import com.mycompany.myapp.repository.EmployeeRepository;
+import com.mycompany.myapp.service.EmployeeService;
 import com.mycompany.myapp.service.dto.EmployeeDTO;
 import com.mycompany.myapp.service.mapper.EmployeeMapper;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
@@ -72,6 +73,9 @@ public class EmployeeResourceIntTest {
     private EmployeeMapper employeeMapper;
 
     @Autowired
+    private EmployeeService employeeService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -90,7 +94,7 @@ public class EmployeeResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        EmployeeResource employeeResource = new EmployeeResource(employeeRepository, employeeMapper);
+        EmployeeResource employeeResource = new EmployeeResource(employeeService);
         this.restEmployeeMockMvc = MockMvcBuilders.standaloneSetup(employeeResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

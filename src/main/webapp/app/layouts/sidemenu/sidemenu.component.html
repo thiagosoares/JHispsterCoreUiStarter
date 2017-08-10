@@ -9,6 +9,20 @@
           UI Elements
         </li>
         <li class="nav-item nav-dropdown" routerLinkActive="open" jhiAppNavDropdown>
+          <a class="nav-link nav-dropdown-toggle" href="#" jhiAppNavDropdownToggle><i class="icon-star"></i> Entities</a>
+          <ul class="nav-dropdown-items">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/department']"><i class="icon-star"></i> Department</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/employee']"><i class="icon-star"></i> Employee</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/job']"><i class="icon-star"></i> Job</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item nav-dropdown" routerLinkActive="open" jhiAppNavDropdown>
           <a class="nav-link nav-dropdown-toggle" href="#" jhiAppNavDropdownToggle><i class="icon-puzzle"></i> Components</a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">

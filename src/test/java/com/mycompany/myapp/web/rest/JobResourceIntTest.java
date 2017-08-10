@@ -4,6 +4,7 @@ import com.mycompany.myapp.JhipsterApp;
 
 import com.mycompany.myapp.domain.Job;
 import com.mycompany.myapp.repository.JobRepository;
+import com.mycompany.myapp.service.JobService;
 import com.mycompany.myapp.service.dto.JobDTO;
 import com.mycompany.myapp.service.mapper.JobMapper;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
@@ -55,6 +56,9 @@ public class JobResourceIntTest {
     private JobMapper jobMapper;
 
     @Autowired
+    private JobService jobService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -73,7 +77,7 @@ public class JobResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        JobResource jobResource = new JobResource(jobRepository, jobMapper);
+        JobResource jobResource = new JobResource(jobService);
         this.restJobMockMvc = MockMvcBuilders.standaloneSetup(jobResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

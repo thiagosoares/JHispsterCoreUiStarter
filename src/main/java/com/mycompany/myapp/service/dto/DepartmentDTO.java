@@ -17,8 +17,6 @@ public class DepartmentDTO implements Serializable {
     @NotNull
     private String departmentName;
 
-    private Long locationId;
-
     public Long getId() {
         return id;
     }
@@ -33,14 +31,6 @@ public class DepartmentDTO implements Serializable {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
-    }
-
-    public Long getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
     }
 
     @Override

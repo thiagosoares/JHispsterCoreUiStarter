@@ -1,13 +1,10 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.mycompany.myapp.domain.Job;
-
-import com.mycompany.myapp.repository.JobRepository;
+import com.mycompany.myapp.service.JobService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import com.mycompany.myapp.service.dto.JobDTO;
-import com.mycompany.myapp.service.mapper.JobMapper;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -36,13 +33,10 @@ public class JobResource {
 
     private static final String ENTITY_NAME = "job";
 
-    private final JobRepository jobRepository;
+    private final JobService jobService;
 
-    private final JobMapper jobMapper;
-
-    public JobResource(JobRepository jobRepository, JobMapper jobMapper) {
-        this.jobRepository = jobRepository;
-        this.jobMapper = jobMapper;
+    public JobResource(JobService jobService) {
+        this.jobService = jobService;
     }
 
     /**
@@ -59,9 +53,7 @@ public class JobResource {
         if (jobDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new job cannot already have an ID")).body(null);
         }
-        Job job = jobMapper.toEntity(jobDTO);
-        job = jobRepository.save(job);
-        JobDTO result = jobMapper.toDto(job);
+        JobDTO result = jobService.save(jobDTO);
         return ResponseEntity.created(new URI("/api/jobs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -83,9 +75,7 @@ public class JobResource {
         if (jobDTO.getId() == null) {
             return createJob(jobDTO);
         }
-        Job job = jobMapper.toEntity(jobDTO);
-        job = jobRepository.save(job);
-        JobDTO result = jobMapper.toDto(job);
+        JobDTO result = jobService.save(jobDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, jobDTO.getId().toString()))
             .body(result);
@@ -101,9 +91,9 @@ public class JobResource {
     @Timed
     public ResponseEntity<List<JobDTO>> getAllJobs(@ApiParam Pageable pageable) {
         log.debug("REST request to get a page of Jobs");
-        Page<Job> page = jobRepository.findAll(pageable);
+        Page<JobDTO> page = jobService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/jobs");
-        return new ResponseEntity<>(jobMapper.toDto(page.getContent()), headers, HttpStatus.OK);
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
@@ -116,8 +106,7 @@ public class JobResource {
     @Timed
     public ResponseEntity<JobDTO> getJob(@PathVariable Long id) {
         log.debug("REST request to get Job : {}", id);
-        Job job = jobRepository.findOneWithEagerRelationships(id);
-        JobDTO jobDTO = jobMapper.toDto(job);
+        JobDTO jobDTO = jobService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(jobDTO));
     }
 
@@ -131,7 +120,7 @@ public class JobResource {
     @Timed
     public ResponseEntity<Void> deleteJob(@PathVariable Long id) {
         log.debug("REST request to delete Job : {}", id);
-        jobRepository.delete(id);
+        jobService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 }

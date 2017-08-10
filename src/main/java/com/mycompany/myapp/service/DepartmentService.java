@@ -1,7 +1,8 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.service.dto.DepartmentDTO;
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Service Interface for managing Department.
@@ -19,9 +20,10 @@ public interface DepartmentService {
     /**
      *  Get all the departments.
      *
+     *  @param pageable the pagination information
      *  @return the list of entities
      */
-    List<DepartmentDTO> findAll();
+    Page<DepartmentDTO> findAll(Pageable pageable);
 
     /**
      *  Get the "id" department.

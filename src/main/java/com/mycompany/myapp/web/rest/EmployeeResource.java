@@ -1,13 +1,10 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.mycompany.myapp.domain.Employee;
-
-import com.mycompany.myapp.repository.EmployeeRepository;
+import com.mycompany.myapp.service.EmployeeService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import com.mycompany.myapp.service.dto.EmployeeDTO;
-import com.mycompany.myapp.service.mapper.EmployeeMapper;
 import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -36,13 +33,10 @@ public class EmployeeResource {
 
     private static final String ENTITY_NAME = "employee";
 
-    private final EmployeeRepository employeeRepository;
+    private final EmployeeService employeeService;
 
-    private final EmployeeMapper employeeMapper;
-
-    public EmployeeResource(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
-        this.employeeRepository = employeeRepository;
-        this.employeeMapper = employeeMapper;
+    public EmployeeResource(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     /**
@@ -59,9 +53,7 @@ public class EmployeeResource {
         if (employeeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new employee cannot already have an ID")).body(null);
         }
-        Employee employee = employeeMapper.toEntity(employeeDTO);
-        employee = employeeRepository.save(employee);
-        EmployeeDTO result = employeeMapper.toDto(employee);
+        EmployeeDTO result = employeeService.save(employeeDTO);
         return ResponseEntity.created(new URI("/api/employees/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -83,9 +75,7 @@ public class EmployeeResource {
         if (employeeDTO.getId() == null) {
             return createEmployee(employeeDTO);
         }
-        Employee employee = employeeMapper.toEntity(employeeDTO);
-        employee = employeeRepository.save(employee);
-        EmployeeDTO result = employeeMapper.toDto(employee);
+        EmployeeDTO result = employeeService.save(employeeDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, employeeDTO.getId().toString()))
             .body(result);
@@ -101,9 +91,9 @@ public class EmployeeResource {
     @Timed
     public ResponseEntity<List<EmployeeDTO>> getAllEmployees(@ApiParam Pageable pageable) {
         log.debug("REST request to get a page of Employees");
-        Page<Employee> page = employeeRepository.findAll(pageable);
+        Page<EmployeeDTO> page = employeeService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/employees");
-        return new ResponseEntity<>(employeeMapper.toDto(page.getContent()), headers, HttpStatus.OK);
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
@@ -116,8 +106,7 @@ public class EmployeeResource {
     @Timed
     public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable Long id) {
         log.debug("REST request to get Employee : {}", id);
-        Employee employee = employeeRepository.findOne(id);
-        EmployeeDTO employeeDTO = employeeMapper.toDto(employee);
+        EmployeeDTO employeeDTO = employeeService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(employeeDTO));
     }
 
@@ -131,7 +120,7 @@ public class EmployeeResource {
     @Timed
     public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
         log.debug("REST request to delete Employee : {}", id);
-        employeeRepository.delete(id);
+        employeeService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 }

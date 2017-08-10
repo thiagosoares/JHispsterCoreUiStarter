@@ -21,8 +21,6 @@ public class JobDTO implements Serializable {
 
     private Long employeeId;
 
-    private Set<TaskDTO> tasks = new HashSet<>();
-
     public Long getId() {
         return id;
     }
@@ -61,14 +59,6 @@ public class JobDTO implements Serializable {
 
     public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
-    }
-
-    public Set<TaskDTO> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Set<TaskDTO> tasks) {
-        this.tasks = tasks;
     }
 
     @Override
