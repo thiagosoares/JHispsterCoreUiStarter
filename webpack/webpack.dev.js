@@ -18,13 +18,15 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             context: [
                 /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
                 '/gestao_financeira/api',
+                '/security_manager/api',
                 '/management',
                 '/swagger-resources',
                 '/v2/api-docs',
                 '/h2-console'
             ],
             //target: 'http://127.0.0.1:8080',
-            target: 'https://www2.desenvolver.prodepa.gov.br/',            
+            //target: 'https://www2.desenvolver.prodepa.gov.br/',            
+            target: 'http://127.0.0.1:8080',
             secure: false
         }]
     },

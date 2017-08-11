@@ -7,10 +7,10 @@ export class AccountService  {
     constructor(private http: Http) { }
 
     get(): Observable<any> {
-        return this.http.get('/gestao_financeira/api/V1/auth/account').map((res: Response) => res.json());
+        return this.http.get('/security_manager/api/V1/auth/account?api_key=1').map((res: Response) => res.json());
     }
 
     save(account: any): Observable<Response> {
-        return this.http.post('/gestao_financeira/api/V1/auth/account', account);
+        return this.http.post('/security_manager/api/V1/auth/account?api_key=1', account);
     }
 }

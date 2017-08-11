@@ -1,0 +1,4 @@
+Request Method:GET
+Request URL:https://www2.desenvolver.prodepa.gov.br/consultas_gerenciais_service/api/V1/auth/profile-info
+
+{ "activeProfiles" : [ "swagger", "dev" ], "ribbonEnv" : "dev"}

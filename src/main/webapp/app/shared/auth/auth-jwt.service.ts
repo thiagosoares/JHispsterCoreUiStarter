@@ -22,7 +22,7 @@ export class AuthServerProvider {
             password: credentials.password,
             rememberMe: credentials.rememberMe
         };
-        return this.http.post('/gestao_financeira/api/V1/auth/authenticate', data).map(authenticateSuccess.bind(this));
+        return this.http.post('/security_manager/api/V1/auth/authenticate?api_key=1', data).map(authenticateSuccess.bind(this));
 
         function authenticateSuccess(resp) {
             const bearerToken = resp.headers.get('Authorization');

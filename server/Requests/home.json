@@ -1,0 +1,23 @@
+Request URL:https://www2.desenvolver.prodepa.gov.br/consultas_gerenciais/i18n/pt-br/home.json
+Request Method:GET
+
+{
+    "home": {
+        "title": "Bem vindo ao Consultas Gerenciais!",
+        "subtitle": "Estas são suas operações!",
+        "logged": {
+            "message": "Você está logado como \"{{username}}\"."
+        },
+        "question": "Em caso de dúvida sobre o JHipster:",
+        "link": {
+            "homepage": "JHipster homepage",
+            "stackoverflow": "JHipster no Stack Overflow",
+            "bugtracker": "JHipster bug tracker",
+            "chat": "JHipster public chat room",
+            "follow": "contate @java_hipster on Twitter"
+        },
+        "like": "Se você gosta do JHipster, não se esqueça de avaliar no",
+        "github": "GitHub"
+    }
+}
+

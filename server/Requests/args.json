@@ -1,0 +1,21 @@
+{
+    "resourceId": {
+        "path": [
+            "paths",
+            "/consultas_gerenciais/i18n/pt-br/{resourceId}",
+            "get",
+            "parameters",
+            "0"
+        ],
+        "schema": {
+            "name": "resourceId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "originalValue": "1",
+        "value": 1
+    }
+}
