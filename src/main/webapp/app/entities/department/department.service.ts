@@ -8,7 +8,7 @@ import { ResponseWrapper, createRequestOption } from '../../shared';
 @Injectable()
 export class DepartmentService {
 
-    private resourceUrl = 'api/departments';
+    private resourceUrl = '/app/api/V1/departments';
 
     constructor(private http: Http) { }
 

@@ -1,0 +1,32 @@
+{
+    "id": 3895,
+    "login": "thiago.soares",
+    "name": "Thiago Fernandes Soares",
+    "orgao": {
+        "id": 35,
+        "codigo": "13203",
+        "nome": "PRODEPA",
+        "sigla": "PRODEPA"
+    },
+    "naturalUserId": "u71305",
+    "authorities": [
+        "DEPARTMENT_ROLE",
+        "CONSULTARNOTAEMPENHO",
+        "ROLE_USER",
+        "CONSULTARNOTAEMPENHO.DETALHAR",
+        "ROLE_ADMIN",
+        "ADMIN",
+        "CONSULTARNOTAEMPENHO.VISUALIZAR"
+    ],
+    "perfis": [
+        "148.1295"
+    ],
+    "operations": [
+        "148.982.3562",
+        "148.980.3561",
+        "148.981.3560"
+    ],
+    "activated": true,
+    "imageUrl": "/security_manager/api/V1/auth/profile-image?api_key=1",
+    "langKey": "pt-br"
+}

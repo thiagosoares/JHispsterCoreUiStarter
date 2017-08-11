@@ -20,10 +20,18 @@ export class Principal {
     }
 
     hasAnyAuthority(authorities: string[]): Promise<boolean> {
+        console.log('hasAnyAuthority');
+        
         return Promise.resolve(this.hasAnyAuthorityDirect(authorities));
     }
 
     hasAnyAuthorityDirect(authorities: string[]): boolean {
+
+        console.log('hasAnyAuthorityDirect ' + authorities);
+        console.log( this.authenticated );
+        console.log( this.userIdentity.authorities );
+        
+
         if (!this.authenticated || !this.userIdentity || !this.userIdentity.authorities) {
             return false;
         }
@@ -63,9 +71,12 @@ export class Principal {
         // retrieve the userIdentity data from the server, update the identity object, and then resolve.
         return this.account.get().toPromise().then((account) => {
             if (account) {
+                console.log('this.account.get() OK');
+                
                 this.userIdentity = account;
                 this.authenticated = true;
             } else {
+                console.log('this.account.get() NOK');
                 this.userIdentity = null;
                 this.authenticated = false;
             }

@@ -14,7 +14,7 @@ export const departmentRoute: Routes = [
         path: 'department',
         component: DepartmentComponent,
         data: {
-            authorities: ['148.982.3562'],
+            authorities: ['DEPARTMENT_ROLE'],
             pageTitle: 'Departments'
         },
         canActivate: [UserRouteAccessService]
@@ -22,7 +22,7 @@ export const departmentRoute: Routes = [
         path: 'department/:id',
         component: DepartmentDetailComponent,
         data: {
-            authorities: ['148.982.3562'],
+            authorities: ['DEPARTMENT_ROLE'],
             pageTitle: 'Departments'
         },
         canActivate: [UserRouteAccessService]
@@ -34,7 +34,7 @@ export const departmentPopupRoute: Routes = [
         path: 'department-new',
         component: DepartmentPopupComponent,
         data: {
-            authorities: ['148.982.3562'],
+            authorities: ['DEPARTMENT_ROLE'],
             pageTitle: 'Departments'
         },
         canActivate: [UserRouteAccessService],
@@ -44,7 +44,7 @@ export const departmentPopupRoute: Routes = [
         path: 'department/:id/edit',
         component: DepartmentPopupComponent,
         data: {
-            authorities: ['148.982.3562'],
+            authorities: ['DEPARTMENT_ROLE'],
             pageTitle: 'Departments'
         },
         canActivate: [UserRouteAccessService],
@@ -54,7 +54,7 @@ export const departmentPopupRoute: Routes = [
         path: 'department/:id/delete',
         component: DepartmentDeletePopupComponent,
         data: {
-            authorities: ['148.982.3562'],
+            authorities: ['DEPARTMENT_ROLE'],
             pageTitle: 'Departments'
         },
         canActivate: [UserRouteAccessService],
