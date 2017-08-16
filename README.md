@@ -15,6 +15,9 @@ You will only need to run this command when dependencies change in [package.json
 
     yarn install
 
+    cd /server/
+    npm start
+
 We use yarn scripts and [Webpack][] as our build system.
 
 

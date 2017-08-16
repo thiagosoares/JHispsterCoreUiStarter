@@ -94,6 +94,8 @@ export class DepartmentComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = headers.get('X-Total-Count');
         for (let i = 0; i < data.length; i++) {
+            console.log('>>' + i);
+            
             this.departments.push(data[i]);
         }
     }

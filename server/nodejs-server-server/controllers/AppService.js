@@ -65,13 +65,15 @@ exports.getDepartments = function (args, res, next) {
     //res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
 
     var arr = [];
-    for (var index = 0; index < Number(args.size.value); index++) {
-      
-  
+    for (var index = 0; index < Number(args.size.value); index++) {  
 
       arr[index] = { "id": (max + index), "departmentName": "Teste " + index };
       
     }
+
+    res.setHeader('Link','</api/departments?page=0&size=20>; rel="last",</api/departments?page=0&size=20>; rel="first"');
+    res.setHeader('X-Total-Count','2');
+    res.setHeader('X-XSS-Protection', 'mode=block')
 
     res.end(JSON.stringify(arr));
   //} else {
