@@ -80,3 +80,25 @@ exports.getDepartments = function (args, res, next) {
   //  res.end();
  // }
 }
+
+exports.getDepartmentsById = function (args, res, next) {
+  /**
+   * Finds Pets by status
+   * Multiple status values can be provided with comma separated strings
+   *
+   * api_key String API KEY
+   * returns List
+   **/
+
+  console.log('>>>>  /getDepartments' +  JSON.stringify(args));
+
+  var id = args.id.value;
+
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('X-XSS-Protection', 'mode=block')
+
+    res.end(JSON.stringify({"id": id, "departmentName": "Teste " + id}));
+  //} else {
+  //  res.end();
+ // }
+}
