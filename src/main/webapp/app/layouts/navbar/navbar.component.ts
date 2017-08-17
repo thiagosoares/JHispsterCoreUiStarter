@@ -23,6 +23,10 @@ export class NavbarComponent implements OnInit {
     modalRef: NgbModalRef;
     version: string;
 
+    // Core UI
+    public disabled = false;
+    public status: {isopen: boolean} = {isopen: false};
+
     constructor(
         private loginService: LoginService,
         private principal: Principal,
@@ -65,5 +69,17 @@ export class NavbarComponent implements OnInit {
 
     getImageUrl() {
         return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    }
+
+    // Core UI
+    public toggled(open: boolean): void {
+        console.log('Dropdown is now: ', open);
+    }
+
+    // Core UI
+    public toggleDropdown($event: MouseEvent): void {
+        $event.preventDefault();
+        $event.stopPropagation();
+        this.status.isopen = !this.status.isopen;
     }
 }

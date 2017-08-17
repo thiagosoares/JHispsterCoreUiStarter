@@ -8,7 +8,7 @@
 
 // app-dashboard and app-root are Angular2 selectors. You can add here your own selectors if you need.
 .app,
-jhi-main,
+app-dashboard,
 app-root {
   display: flex;
   flex-direction: column;
@@ -39,7 +39,6 @@ app-root {
     flex: 0 0 $sidebar-width;
     // put the nav on the left
     order: -1;
-    height: calc(100vh - 55px);
   }
 
   .aside-menu {

@@ -6,7 +6,7 @@ import { StateStorageService } from '../../shared';
 
 @Component({
     selector: 'jhi-main',
-    templateUrl: './main.component.html'
+    templateUrl: './main.component.coreui.html'
 })
 export class JhiMainComponent implements OnInit {
 

@@ -8,6 +8,7 @@ export const HOME_ROUTE: Route = {
     component: HomeComponent,
     data: {
         authorities: [],
-        pageTitle: 'Welcome, Java Hipster!'
+        pageTitle: 'Welcome, Java Hipster!',
+        title: 'Dashboard' /* TODO Esse titulo é para o breadcrumb */
     }
 };

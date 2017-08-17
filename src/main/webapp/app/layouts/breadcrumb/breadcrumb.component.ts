@@ -21,15 +21,15 @@ export class BreadcrumbsComponent {
       do {
         const childrenRoutes = currentRoute.children;
         currentRoute = null;
-        childrenRoutes.forEach((route) => {
-          if (route.outlet === 'primary') {
-            const routeSnapshot = route.snapshot;
+        childrenRoutes.forEach((routeEach) => {
+          if (routeEach.outlet === 'primary') {
+            const routeSnapshot = routeEach.snapshot;
             turl += '/' + routeSnapshot.url.map((segment) => segment.path).join('/');
             this.breadcrumbs.push({
-              label: route.snapshot.data,
+              label: routeEach.snapshot.data,
               url:   turl
             });
-            currentRoute = route;
+            currentRoute = routeEach;
           }
         });
       } while (currentRoute);

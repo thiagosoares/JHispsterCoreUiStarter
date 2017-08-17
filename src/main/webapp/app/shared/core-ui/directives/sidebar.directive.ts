@@ -11,8 +11,6 @@ export class SidebarToggleDirective {
 
   @HostListener('click', ['$event'])
   toggleOpen($event: any) {
-    console.log('SidebarToggleDirective toggleOpen');
-    
     $event.preventDefault();
     document.querySelector('body').classList.toggle('sidebar-hidden');
   }
@@ -26,9 +24,6 @@ export class SidebarMinimizeDirective {
 
   @HostListener('click', ['$event'])
   toggleOpen($event: any) {
-
-    console.log('SidebarMinimizeDirective toggleOpen');
-    
     $event.preventDefault();
     document.querySelector('body').classList.toggle('sidebar-minimized');
   }
@@ -47,9 +42,6 @@ export class MobileSidebarToggleDirective {
 
   @HostListener('click', ['$event'])
   toggleOpen($event: any) {
-
-    console.log('MobileSidebarToggleDirective toggleOpen');
-
     $event.preventDefault();
     document.querySelector('body').classList.toggle('sidebar-mobile-show');
   }
@@ -84,9 +76,6 @@ export class SidebarOffCanvasCloseDirective {
 
   @HostListener('click', ['$event'])
   toggleOpen($event: any) {
-
-    console.log('SidebarOffCanvasCloseDirective toggleOpen');
-
     $event.preventDefault();
 
     if (this.hasClass(document.querySelector('body'), 'sidebar-off-canvas')) {
