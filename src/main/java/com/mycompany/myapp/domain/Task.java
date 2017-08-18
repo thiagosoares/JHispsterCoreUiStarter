@@ -82,17 +82,17 @@ public class Task implements Serializable {
         return this;
     }
 
-    public Task addJob(Job job) {
-        this.jobs.add(job);
-        job.getTasks().add(this);
-        return this;
-    }
-
-    public Task removeJob(Job job) {
-        this.jobs.remove(job);
-        job.getTasks().remove(this);
-        return this;
-    }
+//    public Task addJob(Job job) {
+//        this.jobs.add(job);
+//        job.getTasks().add(this);
+//        return this;
+//    }
+//
+//    public Task removeJob(Job job) {
+//        this.jobs.remove(job);
+//        job.getTasks().remove(this);
+//        return this;
+//    }
 
     public void setJobs(Set<Job> jobs) {
         this.jobs = jobs;

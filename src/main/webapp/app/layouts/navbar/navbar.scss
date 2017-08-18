@@ -1,70 +1,79 @@
 
-/* ==========================================================================
-Navbar
-========================================================================== */
-.navbar-version {
-    font-size: 10px;
-    color: #ccc
+.navbarbg {
+    background: rgb(60,141,188);
+    background: -moz-linear-gradient(top, rgba(60,141,188,1) 0%, rgba(0,89,148,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(60,141,188,1) 0%, rgba(0,89,148,1) 100%);
+    background: linear-gradient(to bottom, rgba(60,141,188,1) 0%, rgba(0,89,148,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c8dbc', endColorstr='#005994', GradientType=0);
 }
 
-.jh-navbar {
-    background-color: #353d47;
-    padding: .2em 1em;
-    .profile-image {
-        margin: -10px 0px;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-    }
-    .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
-        background-color: #353d47;
-    }
-    .dropdown-toggle::after {
-        margin-left: 0.15em;
-    }
-    ul.navbar-nav {
-        padding: 0.5em;
-        .nav-item {
-            margin-left: 1.5rem;
-        }
-    }
-    a.nav-link {
-        font-weight: 400;
-    }
-    .jh-navbar-toggler {
-        color: #ccc;
-        font-size: 1.5em;
-        padding: 10px;
-        &:hover {
-            color: #fff;
-        }
-    }
-}
 
-@media screen and (max-width: 992px) {
-    .jh-logo-container {
-        width: 100%;
-    }
-}
+// /* ==========================================================================
+// Navbar
+// ========================================================================== */
+// .navbar-version {
+//     font-size: 10px;
+//     color: #ccc
+// }
 
-.navbar-title {
-    display: inline-block;
-    vertical-align: middle;
-}
+// .jh-navbar {
+//     background-color: #353d47;
+//     padding: .2em 1em;
+//     .profile-image {
+//         margin: -10px 0px;
+//         height: 40px;
+//         width: 40px;
+//         border-radius: 50%;
+//     }
+//     .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
+//         background-color: #353d47;
+//     }
+//     .dropdown-toggle::after {
+//         margin-left: 0.15em;
+//     }
+//     ul.navbar-nav {
+//         padding: 0.5em;
+//         .nav-item {
+//             margin-left: 1.5rem;
+//         }
+//     }
+//     a.nav-link {
+//         font-weight: 400;
+//     }
+//     .jh-navbar-toggler {
+//         color: #ccc;
+//         font-size: 1.5em;
+//         padding: 10px;
+//         &:hover {
+//             color: #fff;
+//         }
+//     }
+// }
 
-/* ==========================================================================
-Logo styles
-========================================================================== */
-.navbar-brand {
-    &.logo {
-        padding: 5px 15px;
-        .logo-img {
-            height: 45px;
-            width: 70px;
-            display: inline-block;
-            vertical-align: middle;
-            background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
-            background-size: contain;
-        }
-    }
-}
+// @media screen and (max-width: 992px) {
+//     .jh-logo-container {
+//         width: 100%;
+//     }
+// }
+
+// .navbar-title {
+//     display: inline-block;
+//     vertical-align: middle;
+// }
+
+// /* ==========================================================================
+// Logo styles
+// ========================================================================== */
+// .navbar-brand {
+//     &.logo {
+//         padding: 5px 15px;
+//         .logo-img {
+//             height: 45px;
+//             width: 70px;
+//             display: inline-block;
+//             vertical-align: middle;
+//             background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
+//             background-size: contain;
+//         }
+//     }
+// }

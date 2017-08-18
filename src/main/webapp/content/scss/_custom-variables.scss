@@ -38,7 +38,7 @@ $vimeo: #aad450;
 // Navbar
 
 $navbar-height:                     55px;
-$navbar-bg:                         #fff;
+$navbar-bg:                         #3c8dbc; //#fff;
 $navbar-border: (
   bottom: (
     size:                       1px,
@@ -47,9 +47,10 @@ $navbar-border: (
   )
 );
 $navbar-brand-width:                155px;
-$navbar-brand-bg:                   #fff;
-$navbar-brand-logo:                 url('../images/coreui-logo.png');
-$navbar-brand-logo-size:            70px auto;
+$navbar-brand-bg:                   transparent; // #fff;
+//$navbar-brand-logo:                 url('../images/siafen_financeiro_logo.png');
+$navbar-brand-logo:                 url('../images/modulo_gerencial.png');
+$navbar-brand-logo-size:            140px auto;
 $navbar-brand-border: (
   bottom: (
     size:                       1px,
